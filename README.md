@@ -5,14 +5,13 @@ The Provided Username and password is given below;
 username= sta001
 password= givemethe keys
 This app contains various features some of them are;
-Greetings Customers,
-Total Cost Calculaton,
-DataGridView to search and view existings bookings,
+Customer Greetings MessageBox,
 WelcomePage,
 Instruction Menu,
 LoginPage,
 Dashboard or Menu Page,
-AddBooking Page, and
+AddBooking Page,
+Total Cost Calculaton, and
 ViewRentalsPage.
 
 Not Only that but it also generates Unique Booking Ids for each new Bookings and a DataGridView to with a search button to view existings bookings by their booking IDs or First or LastName.
