@@ -1,4 +1,3 @@
-
 This is an impressive high school project! Building a full-stack desktop application with database integration requires a solid understanding of object-oriented programming and data management.
 Here is the elaboration of this project.
 # Title: CarRentalApp
