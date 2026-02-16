@@ -1,9 +1,9 @@
-# CarRentalApp
+
 This is an impressive high school project! Building a full-stack desktop application with database integration requires a solid understanding of object-oriented programming and data management.
-Here is a professional elaboration of the project, suitable for a GitHub README, a portfolio entry, or a school presentation.
-Project Title: DriveEase (or CarRentalApp)
+Here is the elaboration of this project.
+# Title: CarRentalApp
 A Windows-Based Vehicle Management System
-Developed by: Pratik Paudel
+Developed by me;
 1. Project Overview
 This application is a comprehensive Car Rental Management System developed in C#. It is designed as a standalone Windows application that streamlines the process of renting vehicles. The system utilizes an integrated MySQL database to ensure persistent data storage, reliability, and fast retrieval of rental records. The user interface is structured into distinct modules to ensure a smooth, intuitive user experience (UX) from startup to booking.
 2. Technical Architecture
