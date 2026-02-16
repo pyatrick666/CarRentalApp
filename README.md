@@ -33,7 +33,7 @@ B. Core Operations (The Dashboard)
 4. Roadmap & Future Features
  * Payment Gateway Integration (Coming Soon):
    * The developer is currently working on integrating a secure API to handle transactions (credit card/online payments) directly within the app, replacing manual cash logging.
-Why this Project Stands Out for a high school project?, well this demonstrates advanced competency in:
+# Why this Project Stands Out for a high school project?, well this demonstrates advanced competency in:
  * CRUD Operations: Creating, Reading, Updating, and Deleting data in MySQL via C#.
  * UI/UX Design: Thinking about the user flow (Instruction -> Welcome -> Dashboard) rather than just raw code.
  * State Management: Passing data between different windows (e.g., from Login to Dashboard).
