@@ -12,6 +12,7 @@ This application is a comprehensive Car Rental Management System developed in C#
  * Architecture: Multi-layered architecture separating the User Interface (UI), Business Logic, and Data Access Layer.
 3. Application Workflow & Modules
 The application is architected around a linear flow that guides the user securely to the dashboard.
+
 A. Onboarding & Security
  * Startup / Instruction Page:
    * Upon launching the executable, the user is greeted with a guide explaining how to navigate the software. This serves as an onboard tutorial to minimize user error.
@@ -20,6 +21,7 @@ A. Onboarding & Security
  * Login Page:
    * Security: Implements authentication logic to protect the database. It likely checks credentials against the Users table in MySQL.
    * Access Control: Ensures only authorized personnel can add bookings or view sensitive rental history.
+
 B. Core Operations (The Dashboard)
  * Dashboard Page:
    * The central hub of the application. It likely features navigation buttons/tiles leading to specific tasks and might display a snapshot of current availability (e.g., "5 Cars Available").
