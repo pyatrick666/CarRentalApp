@@ -1,0 +1,171 @@
+﻿using System;
+using System.Collections.Generic;
+using System.ComponentModel;
+using System.Data;
+using System.Drawing;   
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using System.Windows.Forms;
+using System.Data.SqlClient;
+using System.Configuration;
+
+namespace WindowsFormsApp1
+{
+    public partial class Customer_Detail_Form : Form
+    {
+        public Customer_Detail_Form()
+        {
+            InitializeComponent();
+        }
+
+        private void Customer_Detail_Form_Load(object sender, EventArgs e)
+        {
+            LoadCustomerData();
+        }
+
+        public void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private bool Button1_Click(object sender, EventArgs e)
+        {
+            if(!IsFormComplete())
+            {
+                MessageBox.Show("Please complete all fields before submitting.", "Incomplete Form", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return false;
+            }
+
+            SaveCustomerData();
+            LoadCustomerData();
+            MessageBox.Show("Congratulation You Have Booked Your Ride,Thank You", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            return true;
+        }
+
+        private bool IsFormComplete()
+        {
+            // Check if all required fields are filled/selected
+            return !string.IsNullOrWhiteSpace(textBox1.Text)
+                && !string.IsNullOrWhiteSpace(textBox2.Text)
+                && !string.IsNullOrWhiteSpace(textBox3.Text)
+                && comboBox1.SelectedItem != null
+                && comboBox2.SelectedItem != null
+                && comboBox3.SelectedItem != null;
+        }
+
+        private void SaveCustomerData()
+        {
+            // Get connection string (if using App.config)
+            // string connectionString = ConfigurationManager.ConnectionStrings["CustomerDb"].ConnectionString;
+
+            // Or use a direct connection string for learning/demo:
+            string connectionString = @"Data Source=.\SQLEXPRESS;Initial Catalog=YourDatabaseName;Integrated Security=True";
+
+            string query = @"INSERT INTO Customers 
+                (FirstName, SecondField, ThirdField, ComboBox1, ComboBox2, NumericUpDown2)
+                VALUES (@FirstName, @SecondField, @ThirdField, @ComboBox1, @ComboBox2, @NumericUpDown2)";
+
+            using (SqlConnection conn = new SqlConnection(connectionString))
+            using (SqlCommand cmd = new SqlCommand(query, conn))
+            {
+                cmd.Parameters.AddWithValue("@FirstName", textBox1.Text);
+                cmd.Parameters.AddWithValue("@SecondField", textBox2.Text);
+                cmd.Parameters.AddWithValue("@ThirdField", textBox3.Text);
+                cmd.Parameters.AddWithValue("@ComboBox1", comboBox1.SelectedItem?.ToString() ?? "");
+                cmd.Parameters.AddWithValue("@ComboBox2", comboBox2.SelectedItem?.ToString() ?? "");
+                cmd.Parameters.AddWithValue("@NumericUpDown2", (int)numericUpDown2.Value);
+
+                try
+                {
+                    conn.Open();
+                    cmd.ExecuteNonQuery();
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("Database error: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+            }
+        }
+
+        private void label5_Click(object sender, EventArgs e)
+        {
+        }
+
+        private void label8_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label7_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void textBox3_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void numericUpDown2_ValueChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void textBox2_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void textBox1_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void comboBox2_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label6_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void LoadCustomerData()
+        {
+            string connectionString = @"Data Source=.\SQLEXPRESS;Initial Catalog=YourDatabaseName;Integrated Security=True";
+            string query = @"SELECT TOP 1 FirstName, SecondField, ThirdField, ComboBox1, ComboBox2, ComboBox3, NumericUpDown2
+                             FROM Customers
+                             ORDER BY CustomerID DESC"; // Adjust as needed
+
+            using (SqlConnection conn = new SqlConnection(connectionString))
+            using (SqlCommand cmd = new SqlCommand(query, conn))
+            {
+                try
+                {
+                    conn.Open();
+                    using (SqlDataReader reader = cmd.ExecuteReader())
+                    {
+                        if (reader.Read())
+                        {
+                            textBox1.Text = reader["FirstName"].ToString();
+                            textBox2.Text = reader["SecondField"].ToString();
+                            textBox3.Text = reader["ThirdField"].ToString();
+                            comboBox1.SelectedItem = reader["ComboBox1"].ToString();
+                            comboBox2.SelectedItem = reader["ComboBox2"].ToString();
+                            comboBox3.SelectedItem = reader["ComboBox3"].ToString();
+                            decimal numericValue;
+                            if (decimal.TryParse(reader["NumericUpDown2"].ToString(), out numericValue))
+                                numericUpDown2.Value = numericValue;
+                        }
+                    }
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("Database error: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+            }
+        }
+    }
+}
