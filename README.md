@@ -1,54 +1,78 @@
-# CarRentalApp
+# CarRentalApp — Vehicle Rental Booking System
 
-A **C# Windows desktop application** for managing a vehicle-rental workflow. The project explores desktop application development, user-interface design, database integration, and CRUD operations.
+A Windows desktop application built with **C# and Windows Forms** for recording and reviewing vehicle rental bookings. The project uses **Microsoft SQL Server** for persistent booking data.
+
+> Screenshots and a walkthrough will be added in a later update.
 
 ## Overview
 
-CarRentalApp is organized around the common tasks involved in managing vehicle rentals. The documented application flow includes an introductory screen, welcome and login screens, a dashboard, booking entry, and a rentals view.
+The application provides a guided flow from a welcome screen to login and the main dashboard. Its booking form collects renter details, vehicle preferences, rental duration, and optional services. Booking records are stored in the SQL Server `dbo.bookinginfo` table.
 
 ## Features
 
-- Introductory instructions and welcome screen
-- Login interface for access to the application
-- Dashboard for navigating rental-management tasks
-- Booking form for entering customer, vehicle, and rental-date information
-- Rentals view for reviewing recorded rental information
-- MySQL database integration for persistent records
-
-> The exact authentication protections, database schema, validation rules, and booking-conflict handling should be confirmed against the implementation before this project is presented as production-ready.
+- Welcome and login screens
+- Dashboard navigation
+- Vehicle rental booking form
+- Capture renter details, age, driving-licence status, rental days, car type, and fuel type
+- Optional unlimited-mileage and breakdown-cover selections
+- Save booking records to SQL Server
+- View existing rental records
+- Search bookings by booking ID, first name, or last name
 
 ## Technology
 
-| Component | Technology |
+| Area | Implementation |
 | --- | --- |
 | Language | C# |
-| Platform | Windows desktop |
-| Database | MySQL |
-| Development focus | Object-oriented programming, CRUD operations, UI workflows, database access |
+| Desktop UI | Windows Forms |
+| Data access | ADO.NET with `Microsoft.Data.SqlClient` |
+| Database | Microsoft SQL Server |
+| Query style | Parameterized SQL commands |
 
-## Application workflow
+## Main files
 
-1. Launch the application and review the introductory guidance.
-2. Continue to the welcome and login screens.
-3. Navigate through the dashboard.
-4. Enter a rental booking using the booking form.
-5. Review existing rental records in the rentals view.
+| File | Responsibility |
+| --- | --- |
+| `Program.cs` | Application entry point |
+| `Welcomescreen.cs` | Welcome screen |
+| `Login_page.cs` | Login screen |
+| `dashboard.cs` | Main dashboard |
+| `bookingform.cs` | New booking form |
+| `ViewRentals.cs` | View and search rental records |
+| `BookingRepos.cs` | SQL Server booking insert, retrieval, and search operations |
+| `App.config` | Application and database connection configuration |
 
-## Screenshots
+## Requirements
 
-Application screenshots will be added in a later update.
+- Windows
+- Visual Studio with the .NET Framework targeting components required by the project
+- Microsoft SQL Server
+- A database containing the expected `dbo.bookinginfo` table
 
-## Planned improvements
+## Setup
 
-- Document the exact .NET version and UI framework
-- Add setup instructions and database schema
-- Add input validation and clearer error handling
-- Improve booking-date conflict checks
-- Evaluate secure authentication and role-based access
-- Consider payment integration only after the core rental workflow is complete
+1. Clone the repository:
+   ```bash
+   git clone https://github.com/pyatrick666/CarRentalApp.git
+   ```
+2. Open `WindowsFormsApp1.sln` in Visual Studio.
+3. Configure the `BookingDB` connection string in `App.config` for your local SQL Server instance.
+4. Create the database and `dbo.bookinginfo` table with the columns used by `BookingRepos.cs`.
+5. Restore the NuGet packages referenced by the project.
+6. Build and run the application from Visual Studio.
+
+Do not commit real database passwords or production connection strings.
+
+## Data fields
+
+The booking model includes booking ID, renter name, address, age, driving-licence status, rental days, car type, fuel type, unlimited mileage, and breakdown cover.
+
+## Notes and limitations
+
+- This is a desktop coursework/personal project, not a hosted booking service.
+- The implementation uses SQL Server, not MySQL.
+- Authentication and database deployment should be reviewed and tested before using the application with real customer information.
 
 ## Author
 
-**Pratik Poudel**
-
-[GitHub profile](https://github.com/pyatrick666) · [Professional portfolio](https://pyatrick666.github.io/Professional-Portfolio/)
+**Pratik Poudel** · [GitHub](https://github.com/pyatrick666)
