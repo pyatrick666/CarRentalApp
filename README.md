@@ -1,41 +1,54 @@
-This is an impressive high school project! Building a full-stack desktop application with database integration requires a solid understanding of object-oriented programming and data management.
-Here is the elaboration of this project.
-# Title: CarRentalApp
-A Windows-Based Vehicle Management System
-Developed by me;
-1. Project Overview
-This application is a comprehensive Car Rental Management System developed in C#. It is designed as a standalone Windows application that streamlines the process of renting vehicles. The system utilizes an integrated MySQL database to ensure persistent data storage, reliability, and fast retrieval of rental records. The user interface is structured into distinct modules to ensure a smooth, intuitive user experience (UX) from startup to booking.
-2. Technical Architecture
- * Language: C# (.NET Framework/.NET Core)
- * Database: MySQL (Relational Database Management System)
- * Platform: Windows Desktop (WinForms or WPF)
- * Architecture: Multi-layered architecture separating the User Interface (UI), Business Logic, and Data Access Layer.
-3. Application Workflow & Modules
-The application is architected around a linear flow that guides the user securely to the dashboard.
+# CarRentalApp
 
-A. Onboarding & Security
- * Startup / Instruction Page:
-   * Upon launching the executable, the user is greeted with a guide explaining how to navigate the software. This serves as an onboard tutorial to minimize user error.
- * Welcome Page:
-   * A polished landing screen that establishes the branding and offers a clear path to enter the system.
- * Login Page:
-   * Security: Implements authentication logic to protect the database. It likely checks credentials against the Users table in MySQL.
-   * Access Control: Ensures only authorized personnel can add bookings or view sensitive rental history.
+A **C# Windows desktop application** for managing a vehicle-rental workflow. The project explores desktop application development, user-interface design, database integration, and CRUD operations.
 
-B. Core Operations (The Dashboard)
- * Dashboard Page:
-   * The central hub of the application. It likely features navigation buttons/tiles leading to specific tasks and might display a snapshot of current availability (e.g., "5 Cars Available").
- * Add Booking Window:
-   * Input Forms: Fields for Customer Name, Contact Info, Car Model, Rental Date, and Return Date.
-   * Logic: When submitted, this module executes an INSERT SQL query to the MySQL database to lock the vehicle for the selected dates.
- * View Rentals Window:
-   * Data Grid: A tabular view (DataViewGrid) that fetches data using SELECT queries.
-   * Management: Allows the admin to see active rentals, track due dates, and potentially mark cars as returned.
-4. Roadmap & Future Features
- * Payment Gateway Integration (Coming Soon):
-   * The developer is currently working on integrating a secure API to handle transactions (credit card/online payments) directly within the app, replacing manual cash logging.
-5. Why this Project Stands Out for a high school project?, well this demonstrates advanced competency in:
- * CRUD Operations: Creating, Reading, Updating, and Deleting data in MySQL via C#.
- * UI/UX Design: Thinking about the user flow (Instruction -> Welcome -> Dashboard) rather than just raw code.
- * State Management: Passing data between different windows (e.g., from Login to Dashboard).
+## Overview
 
+CarRentalApp is organized around the common tasks involved in managing vehicle rentals. The documented application flow includes an introductory screen, welcome and login screens, a dashboard, booking entry, and a rentals view.
+
+## Features
+
+- Introductory instructions and welcome screen
+- Login interface for access to the application
+- Dashboard for navigating rental-management tasks
+- Booking form for entering customer, vehicle, and rental-date information
+- Rentals view for reviewing recorded rental information
+- MySQL database integration for persistent records
+
+> The exact authentication protections, database schema, validation rules, and booking-conflict handling should be confirmed against the implementation before this project is presented as production-ready.
+
+## Technology
+
+| Component | Technology |
+| --- | --- |
+| Language | C# |
+| Platform | Windows desktop |
+| Database | MySQL |
+| Development focus | Object-oriented programming, CRUD operations, UI workflows, database access |
+
+## Application workflow
+
+1. Launch the application and review the introductory guidance.
+2. Continue to the welcome and login screens.
+3. Navigate through the dashboard.
+4. Enter a rental booking using the booking form.
+5. Review existing rental records in the rentals view.
+
+## Screenshots
+
+Application screenshots will be added in a later update.
+
+## Planned improvements
+
+- Document the exact .NET version and UI framework
+- Add setup instructions and database schema
+- Add input validation and clearer error handling
+- Improve booking-date conflict checks
+- Evaluate secure authentication and role-based access
+- Consider payment integration only after the core rental workflow is complete
+
+## Author
+
+**Pratik Poudel**
+
+[GitHub profile](https://github.com/pyatrick666) · [Professional portfolio](https://pyatrick666.github.io/Professional-Portfolio/)
