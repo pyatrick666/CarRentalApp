@@ -75,4 +75,4 @@ The booking model includes booking ID, renter name, address, age, driving-licenc
 
 ## Author
 
-**Pratik Poudel** · [GitHub](https://github.com/pyatrick666)
+**Pratik Poudel** · [Portfolio](https://pratikpoudel.info.np/) · [GitHub](https://github.com/pyatrick666)
